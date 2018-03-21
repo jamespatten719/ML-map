@@ -4,14 +4,12 @@
 	<!-- cartodb.js comes with Leaflet @0.7 and jQuery -->
 	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
 	<link rel="stylesheet" href= "https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" />
-
 	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
 	<script src="http://d3js.org/d3.v2.js"></script>
 	<!-- This script makes it easy to use Stamen basemaps   -->
 	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
-	
 	<script src="/js/leaflet-0.7.2/leaflet.ajax.min.js"></script>
 
 	<title>ML Map</title>
@@ -43,15 +41,6 @@
 		// create a tile layer for our toner basemap
 		var tonerLayer = new L.StamenTileLayer("terrain");
 		map.addLayer(tonerLayer);
-		
-		var geojsonMarkerOptions = {
-			radius : 4,
-			fillColor : "#9ACD66",
-			color : "#000",
-			weight : 1,
-			opacity : 1,
-			fillOpacity : 0.8
-		};
 		
 		cartodb.createLayer(map, {
 			user_name : 'jamespatten719',
