@@ -11,6 +11,8 @@
 	<script src="http://d3js.org/d3.v2.js"></script>
 	<!-- This script makes it easy to use Stamen basemaps   -->
 	<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+	
+	<script src="/js/leaflet-0.7.2/leaflet.ajax.min.js"></script>
 
 	<title>ML Map</title>
 	<style>
@@ -31,18 +33,34 @@
 </head>
 
 <body>
-	</div>
-	<div id="map"></div>
+	<div id="map" class = "map"></div>
 	<script>
 		// necessary for making AJAX calls on Blockbuilder.org as of 2016-11-02
 		jQuery.support.cors = true;
 		// create a new map centered on London.
-		var map = L.map('map').setView([51.5, -0.05], 10);
+		var map = L.map('map').setView([34, -118], 9);
 		map.on('click');
 		// create a tile layer for our toner basemap
-		var tonerLayer = new L.StamenTileLayer("toner");
+		var tonerLayer = new L.StamenTileLayer("terrain");
 		map.addLayer(tonerLayer);
 		
+		var geojsonMarkerOptions = {
+			radius : 4,
+			fillColor : "#9ACD66",
+			color : "#000",
+			weight : 1,
+			opacity : 1,
+			fillOpacity : 0.8
+		};
 		
+		cartodb.createLayer(map, {
+			user_name : 'jamespatten719',
+			type : 'cartodb',
+			sublayers : [{
+				sql : 'SELECT * FROM linear_model_4',
+				cartocss : '#layer{ marker-width: 7; marker-fill: #EE4D5A; marker-fill-opacity: 0.9; marker-allow-overlap: true; marker-line-width: 1;  marker-line-color: #FFFFFF; marker-line-opacity: 1;}'
+			}]
+		}).addTo(map);
+	
 	</script>
 </body>
