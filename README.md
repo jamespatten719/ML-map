@@ -1,3 +1,5 @@
 # ML-map
 
-Geo map showing house prices from a training set as well as predicted prices
+This project aims to visualise predicted house price outputs from a linear regression model on a map.
+Follow progress here: 
+
