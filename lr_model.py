@@ -1,9 +1,3 @@
-"""
-Created on Mon Sep 18 15:49:13 2017
-
-@author: sudhir
-"""
-
 import pandas as pd
 import numpy as np
 import seaborn as sns
